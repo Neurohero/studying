@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000" 
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - /tmp/monitoring_configs/grafana/provisioning/:/etc/grafana/provisioning/
+    environment:
+      GF_PATHS_PROVISIONING: /etc/grafana/provisioning
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /etc/grafana/provisioning/dashboards/node_exporter.json
+      GF_SECURITY_DISABLE_INITIAL_ADMIN_CREATION: "true"
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: "Admin"
+    networks:
+      - monitoring
+
+  prometheus:
+    image: bitnami/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - /tmp/monitoring_configs/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - monitoring
+
+  node_exporter:
+    image: bitnami/node-exporter:latest
+    container_name: node_exporter
+    ports:
+      - "9100:9100"
+    networks:
+      - monitoring
+
+volumes:
+  grafana_data:
+
+networks:
+  monitoring:
+    driver: bridge
