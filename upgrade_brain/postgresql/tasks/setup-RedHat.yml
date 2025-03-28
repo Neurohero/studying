@@ -1,0 +1,29 @@
+---
+#- name: RedHat | Установка ключей репозитория PostgreSQL
+#  rpm_key:
+#    key: https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG
+#    state: present
+
+- name: RedHat | Установка репозитория PostgreSQL
+  ansible.builtin.yum:
+    name: "https://download.postgresql.org/pub/repos/yum/reporpms/EL-{{ ansible_distribution_major_version }}-x86_64/pgdg-redhat-repo-latest.noarch.rpm"
+    state: present
+
+- name: RedHat | Отключение стандартного модуля
+  ansible.builtin.shell: dnf -qy module disable postgresql
+  when: ansible_distribution_major_version == "8"
+
+- name: RedHat | Установка пакетов PostgreSQL
+  ansible.builtin.yum:
+    name: "{{ __postgresql_packages }}"
+    state: present
+    enablerepo: "{{ postgresql_enablerepo | default(omit, true) }}"
+    disablerepo: "{{ postgresql_disablerepo | default(omit, true)  }}"
+    exclude: python-unversioned-command
+
+- name: RedHat | Установка библиотек Python для дальнейшей настройки
+  pip:
+    name: "{{ postgresql_python_library }}"
+    state: present
+
+- include_tasks: initialize.yml

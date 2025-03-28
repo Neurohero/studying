@@ -1,0 +1,24 @@
+---
+# Variable configuration.
+- include_tasks: variables.yml
+
+# Проверка установлен ли Postgresql
+- include_tasks: check-postgresql-installed.yml
+
+# Setup/install tasks.
+- include_tasks: setup-RedHat.yml
+  when: "(ansible_os_family == 'RedHat' or ansible_os_family == 'AlmaLinux') and 
+    ('postgresql96-server' not in ansible_facts.packages and 
+    'postgresql11-server' not in ansible_facts.packages and 
+    'postgresql12-server' not in ansible_facts.packages and 
+    'postgresql13-server' not in ansible_facts.packages and 
+    'postgresql14-server' not in ansible_facts.packages and 
+    'postgresql15-server' not in ansible_facts.packages and 
+    'postgresql16-server' not in ansible_facts.packages)"
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian' and stat_result_ubuntu.stat.exists is false
+
+# - include_tasks: initialize.yml
+# - include_tasks: configure.yml
+- include_tasks: configurate_pg_hba.yml

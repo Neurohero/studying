@@ -1,0 +1,68 @@
+- name: Install docker.io and docker-compose
+  become: true
+  hosts: all
+  tasks:
+  
+    - name: Install docker.io and docker-compose
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - docker.io
+        - docker-compose
+
+    - name: Start docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
+        daemon_reload: yes
+
+    - name: Add vagrant user to docker
+      user:
+        name: vagrant
+        groups: docker
+        append: yes
+
+    - name: Copy docker-compose.yml
+      copy:
+        src: docker-compose.yml
+        dest: /home/vagrant/docker-compose.yml
+
+    - name: Start docker-compose
+      become: true
+      command: docker-compose up -d
+      args:
+        chdir: /home/vagrant
+
+    - name: Copy prometheus.yml
+      become: true
+      copy:
+        src: prometheus.yml
+        dest: /etc/prometheus
+
+    - name: Copy dashboards.yml
+      become: true
+      copy:
+        src: dashboards.yml
+        dest: /etc/grafana/provisioning/dashboards/dashboards.yml
+
+#    - name: Set permissions for /etc/prometheus
+#      become: true
+#      command: chmod -R 755 /etc/prometheus
+
+#    - name: Change owner for /etc/prometheus
+#      become: true
+#S      command: chown -R 1000:1000 /etc/prometheus
+
+    - name: Copy node-exporter.json
+      become: true
+      copy:
+        src: node-exporter.json
+        dest: /etc/grafana/provisioning/dashboards
+
+    - name: Copy datasource_prometheus.yml
+      become: true
+      copy:
+        src: datasource_prometheus.yml
+        dest: /etc/grafana/provisioning/datasources

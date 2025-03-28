@@ -1,0 +1,66 @@
+---
+- name: Установка Kafka и Zookeeper
+  hosts: all
+  become: yes
+  tasks:
+    - name: Проверка существования папки /etc/kafka
+      stat:
+        path: "/etc/kafka"
+      register: kafka_dir
+
+    - name: Создание папки /etc/kafka
+      file:
+        path: "/etc/kafka"
+        state: directory
+        mode: "0755"
+      when: not kafka_dir.stat.exists
+
+    - name: Проверка существования папки /etc/zookeeper
+      stat:
+        path: "/etc/zookeeper"
+      register: zookeeper_dir
+
+    - name: Создание папки /etc/zookeeper
+      file:
+        path: "/etc/zookeeper"
+        state: directory
+        mode: "0755"
+      when: not zookeeper_dir.stat.exists
+
+    - name: Копирование zoo.cfg в нужную директорию
+      copy:
+        src: "/home/kmendeleev/git_hub/job_job/pet_project/4.Настройка\ Kafka/zoo.cfg"
+        dest: "/etc/zookeeper/zoo.cfg"
+        mode: "0755"
+
+    - name: Копирование server.properties в нужную директорию
+      copy:
+        src: "/home/kmendeleev/git_hub/job_job/pet_project/4.Настройка\ Kafka/server.properties"
+        dest: "/etc/kafka/server.properties"
+        mode: "0755"
+
+    - name: Копирование log4j.properties в нужную директорию
+      copy:
+        src: "/home/kmendeleev/git_hub/job_job/pet_project/4.Настройка\ Kafka/log4j.properties"
+        dest: "/etc/kafka/log4j.properties"
+        mode: "0755"
+
+    - name: Копирование compose.yml в домашнюю директорию
+      copy:
+        src: "/home/kmendeleev/git_hub/job_job/pet_project/4.Настройка\ Kafka/compose.yml"
+        dest: "/home/kmendeleev"
+        mode: "0755"
+
+    - name: Запуск compose
+      command: "docker compose -f /home/kmendeleev/compose.yml up -d"
+      args:
+        chdir: "/home/kmendeleev"
+
+    - name: Проверка статуса контейнеров после запуска
+      command: "docker ps"
+      register: docker_ps_output
+
+    - name: Показать статус контейнеров
+      debug:
+        msg: "{{ docker_ps_output.stdout }}"
+

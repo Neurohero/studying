@@ -1,0 +1,15 @@
+[Unit]
+Description=elasticsearch_exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=elasticsearch_exporter
+Group=elasticsearch_exporter
+Restart=on-failure
+Type=simple
+ExecStart = /usr/local/bin/elasticsearch_exporter --es.uri=https://grafana:ksdfj87dfsSG@10.137.55.248:9200 --es.ssl-skip-verify --es.cluster_settings --es.all --es.indices --es.shards --es.timeout 20s --es.snapshots
+
+[Install]
+WantedBy=multi-user.target
+

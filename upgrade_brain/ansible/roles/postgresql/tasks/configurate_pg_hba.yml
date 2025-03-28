@@ -1,0 +1,10 @@
+---
+- name: PostgreSQL PgAgent | Копирование шаблона pg_hba.conf
+  become: true
+  ansible.builtin.template:
+    src: pg_hba.conf.j2
+    dest: "{{ postgresql_config_path }}/pg_hba.conf"
+    owner: postgres
+    group: postgres
+    mode: '0644'
+  notify: reload postgresql

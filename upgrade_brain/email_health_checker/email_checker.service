@@ -1,0 +1,15 @@
+[Unit]
+Description=Email Checker Service
+After=network.target
+
+[Service]
+ExecStart=/home/kmendeleev/email_healthcheck.sh
+Restart=always                
+RestartSec=5                  
+User=root
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+

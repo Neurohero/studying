@@ -1,0 +1,29 @@
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  # Указываем образ базовой системы (box)
+  config.vm.box = "ubuntu"
+  config.vm.box_url = "file://#{Dir.pwd}/ubuntu"
+  # Настраиваем проксирование портов (опционально)
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  config.vm.network "forwarded_port", guest: 9090, host: 9090
+  config.vm.network "forwarded_port", guest: 9100, host: 9100
+
+  # Настраиваем провижининг
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "playbook.yml"
+    ansible.verbose = "v"
+    ansible.install = true # Автоматическая установка Ansible внутри VM
+    ansible.extra_vars = {
+      ansible_python_interpreter: "/usr/bin/python3"
+    }
+  end
+  
+  # Настройки виртуальной машины (для VirtualBox)
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "Ubuntu-Test"
+    vb.memory = "4096"
+    vb.cpus = 2
+  end
+
+end

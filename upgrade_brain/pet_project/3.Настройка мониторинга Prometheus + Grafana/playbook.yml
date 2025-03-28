@@ -1,0 +1,82 @@
+- name: Установка node и postgres_exporter на оставшиеся хосты
+  hosts: node_postgres
+  become: yes
+  tasks:
+    - name: Копирование compose_np
+      copy:
+        src: /home/kmendeleev/git_hub/job_job/pet_project/3.Настройка мониторинга Prometheus + Grafana/compose_np.yml
+        dest: /home/kmendeleev/
+        mode: '0644'
+
+    - name: Запуск compose_np
+      command: docker compose -f /home/kmendeleev/compose_np.yml up -d
+      args:
+        chdir: /home/kmendeleev
+
+    - name: Проверка статуса контейнеров после запуска
+      command: docker ps
+      register: docker_ps_output
+
+    - name: Показать статус контейнеров
+      debug:
+        msg: "{{ docker_ps_output.stdout }}"
+
+- name: Копирование и запуск Prometheus и Grafana через Docker Compose
+  hosts: gf
+  become: yes
+  tasks:
+    - name: Проверка наличия директории prometheus
+      stat:
+        path: /etc/prometheus
+      register: prometheus_dir
+
+    - name: Создание директории prometheus, если не существует
+      file:
+        path: /etc/prometheus
+        state: directory
+        mode: '0755'
+      when: not prometheus_dir.stat.exists
+
+    - name: Проверка наличия директории grafana
+      stat:
+        path: /etc/grafana
+      register: grafana_dir
+
+    - name: Создание директории grafana, если не существует
+      file:
+        path: /etc/grafana
+        state: directory
+        mode: '0755'
+      when: not grafana_dir.stat.exists
+
+    - name: Копирование prometheus.yml в нужную директорию
+      copy:
+        src: /home/kmendeleev/git_hub/job_job/pet_project/3.Настройка мониторинга Prometheus + Grafana/prometheus.yml
+        dest: /etc/prometheus/prometheus.yml
+        mode: '0755'
+      when: not prometheus_dir.stat.exists
+
+    - name: Копирование compose_gf.yml в нужную директорию
+      copy:
+        src: /home/kmendeleev/git_hub/job_job/pet_project/3.Настройка мониторинга Prometheus + Grafana/compose_gf.yml
+        dest: /home/kmendeleev/compose_gf.yml
+        mode: '0755'
+
+    - name: Проверка наличия compose_gf.yml
+      stat:
+        path: /home/kmendeleev/compose_gf.yml
+      register: compose_file
+
+    - name: Запуск docker compose для установки образов и создания контейнеров
+      command: docker compose -f /home/kmendeleev/compose_gf.yml up -d
+      args:
+        chdir: /home/kmendeleev
+
+    - name: Проверка статуса контейнеров после запуска
+      command: docker ps
+      register: docker_ps_output
+
+    - name: Показать статус контейнеров
+      debug:
+        msg: "{{ docker_ps_output.stdout }}"
+

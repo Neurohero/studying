@@ -1,0 +1,20 @@
+- name: docker setup
+  hosts: vm
+  become: true
+  vars_files: /etc/ansible/vault.yml
+  tasks:
+  - name: apt install
+    apt:
+      name: docker.io
+      state: present
+
+  - name: docker start
+    systemd:
+      name: docker
+      state: started
+      enabled: yes
+  - name: docker compose
+    apt: 
+      name: docker-compose
+      state: present
+  

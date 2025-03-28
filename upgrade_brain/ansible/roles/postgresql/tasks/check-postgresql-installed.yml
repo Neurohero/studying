@@ -1,0 +1,44 @@
+---
+- name: Ubuntu | Проверка существования службы PostgreSQL
+  ansible.builtin.stat:
+    path: /lib/systemd/system/postgresql.service
+  register: stat_result_ubuntu
+  when: ansible_os_family == 'Debian'
+
+- name: Получения списка установленных пакетов
+  ansible.builtin.package_facts:
+    manager: auto
+  register: stat_result_rhel
+  when: ansible_os_family == 'RedHat' or ansible_os_family == 'AlmaLinux'
+
+- name: "PostgreSQL result"
+  ansible.builtin.debug:
+    msg: "Пакет не установлен"
+  when: "(ansible_os_family == 'RedHat' or ansible_os_family == 'AlmaLinux') and 
+    ('postgresql96-server' not in ansible_facts.packages and 
+    'postgresql11-server' not in ansible_facts.packages and 
+    'postgresql12-server' not in ansible_facts.packages and 
+    'postgresql13-server' not in ansible_facts.packages and 
+    'postgresql14-server' not in ansible_facts.packages and 
+    'postgresql15-server' not in ansible_facts.packages and 
+    'postgresql16-server' not in ansible_facts.packages)"
+
+# - name: "PostgreSQL result"
+#   ansible.builtin.debug:
+#     msg: "Пакет не установлен"
+#   when: (ansible_os_family == 'RedHat' or ansible_os_family == 'AlmaLinux') and ('postgresql96-server' not in ansible_facts.packages or 'postgresql11-server' not in ansible_facts.packages or 'postgresql12-server' not in ansible_facts.packages or 'postgresql13-server' not in ansible_facts.packages or 'postgresql14-server' not in ansible_facts.packages or 'postgresql15-server' not in ansible_facts.packages)
+
+# - name: "Apache result"
+#   ansible.builtin.debug:
+#     msg: "{{ stat_result_ubuntu.stat.exists }}"
+#   when: stat_result_ubuntu.stat.exists is false
+
+# - name: Debian | проверка существования репозитория PostgreSQL
+#   ansible.builtin.stat:
+#     path: /etc/apt/sources.list.d/pgdg.list
+#   register: stat_result
+  
+# - name: Debian | прервать установку PostgreSQL, если репозиторий уже существует
+#   ansible.builtin.fail:
+#     msg: Репозиторий сущесвует, усановка прервана
+#   when: stat_result.stat.exists

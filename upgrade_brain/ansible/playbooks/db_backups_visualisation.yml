@@ -1,0 +1,33 @@
+- name: backups visualisation
+  hosts: all
+
+  tasks: 
+    - name: show pg_probackup-12 backups
+      command: sudo /usr/bin/pg_probackup-12 show -B /opt/backup/
+      register: pg_probackup_12_output
+      when: "'pg_probackup-12' in group_names"
+    
+    - name: output pg_probackup-12
+      debug:
+        var: pg_probackup_12_output.stdout
+      when: pg_probackup_12_output is defined
+
+    - name: ls backups
+      command: sudo ls -la /opt/backup/
+      register: ls_output
+      when: "'ls_la' in group_names"
+
+    - name: ls output
+      debug:
+        var: ls_output
+      when: ls_output is defined
+
+    - name: show pg_probackup-14 backups
+      command: sudo /usr/bin/pg_probackup-14 show -B /backup/db/
+      register: pg_probackup_14_output
+      when: "'pg_probackup-14' in group_names"
+
+    - name: output pg_probackup-14
+      debug:
+        var: pg_probackup_14_output.stdout
+      when: pg_probackup_14_output is defined

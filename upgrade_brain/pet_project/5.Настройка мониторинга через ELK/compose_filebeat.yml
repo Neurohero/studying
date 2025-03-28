@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  filebeat:
+    image: elastic/filebeat:7.12.1
+    container_name: filebeat
+    user: root
+    volumes:
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /etc/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+    environment:
+      - strict.perms=false
+    command: ["-c", "/usr/share/filebeat/filebeat.yml"]
+    networks:
+      - opensearch
+    restart: always
+    
+networks:
+  opensearch:
+    driver: bridge

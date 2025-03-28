@@ -1,0 +1,16 @@
+[Unit]
+Description=Backup Checker Service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/kmendeleev
+ExecStart=/home/kmendeleev/backup_parser --config /home/kmendeleev/config.yaml
+Restart=always
+RestartSec=5
+User=root
+StandardOutput=journal
+StandardError=journal
+Environment=HOME=/home/kmendeleev
+
+[Install]
+WantedBy=multi-user.target

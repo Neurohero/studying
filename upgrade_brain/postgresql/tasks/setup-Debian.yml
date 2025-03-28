@@ -1,0 +1,47 @@
+---
+- name: Debian | Добавления ключей репозитория
+  apt_key:
+    id: "{{ postgresql_apt_key_id }}"
+    url: "{{ postgresql_apt_key_url }}"
+    state: present
+  when: postgresql_apt_key_url and postgresql_apt_key_id and postgresql_install_repository
+
+- name: Debian | Добавление репозитория apt
+  ansible.builtin.apt_repository:
+    repo: "deb http://apt.postgresql.org/pub/repos/apt {{ ansible_distribution_release }}-pgdg main"
+  when: postgresql_apt_repository | default('') != '' and postgresql_install_repository
+
+# - name: Debian | Переименования файла репозитория
+#   ansible.builtin.shell: mv /etc/apt/sources.list.d/apt_postgresql_org_pub_repos_apt.list /etc/apt/sources.list.d/pgdg.list
+
+- name: Debian | Установка пакетов PostgreSQL
+  apt:
+    name: "{{ __postgresql_packages }}"
+    state: present
+
+- name: Debian PostgreSQL |  Установка пакета psycopg2
+  pip:
+    name: psycopg2-binary
+    state: present
+
+- name: Debian | Настройка локалей
+  locale_gen: "name={{ item }} state=present"
+  with_items: "{{ postgresql_locales }}"
+  register: locale_gen_result
+
+- name: Debian | Принудительный рестарт службы PostgreSQL в случае генерации локалей
+  service:
+    name: "{{ __postgresql_daemon }}"
+    state: restarted
+  when: locale_gen_result.changed
+
+- name: Debian | Добавление пакетов postgresql-* в спиок не обновляемых автоматически
+  become: true
+  ansible.builtin.template:
+    src: 50unattended-upgrades.j2
+    dest: "/etc/apt/apt.conf.d/50unattended-upgrades"
+    owner: root
+    group: root
+    mode: '0644'
+
+- include_tasks: initialize.yml

@@ -1,0 +1,4 @@
+SHELL=/bin/bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+0 03 1 * * root /usr/bin/sudo -u postgres /usr/bin/psql -d ice-warehouse -c 'VACUUM VERBOSE ANALYZE;' >> /var/log/vacuum_analyze_ice_warehouse.log 2>&1
+

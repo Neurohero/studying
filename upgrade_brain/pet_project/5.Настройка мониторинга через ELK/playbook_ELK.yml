@@ -1,0 +1,137 @@
+- name: Установка opensearch
+  hosts: opensearch_main
+  become: True
+
+  tasks:
+  
+    - name: Проверка наличия директории opensearch
+      stat:
+        path: /etc/opensearch
+      register: opensearch_dir
+
+    - name: Создание директории opensearch, если не существует
+      file:
+        path: /etc/opensearch
+        state: directory
+        mode: '0755'
+      when: not opensearch_dir.stat.exists 
+      
+    - name: Проверка наличия директории filebeat
+      stat:
+        path: /etc/filebeat
+      register: filebeat_dir
+
+    - name: Создание директории filebeat, если не существует
+      file:
+        path: /etc/filebeat
+        state: directory
+        mode: '0755'
+      when: not filebeat_dir.stat.exists
+
+    - name: Проверка наличия директории logstash/config
+      stat:
+        path: /etc/logstash/config
+      register: logstash_conf_dir
+
+    - name: Создание директории logstash/config, если не существует
+      file:
+        path: /etc/logstash/config
+        state: directory
+        mode: '0755'
+      when: not logstash_conf_dir.stat.exists
+
+    - name: Проверка наличия директории logstash/pipeline
+      stat:
+        path: /etc/logstash/pipeline
+      register: logstash_pipeline_dir
+
+    - name: Создание директории logstash/pipeline, если не существует
+      file:
+        path: /etc/logstash/pipeline
+        state: directory
+        mode: '0755'
+      when: not logstash_pipeline_dir.stat.exists
+
+    - name: Копирование filebeat.yml в нужную директорию
+      copy:
+        src: /home/kosin/job_job/pet_project/5.Настройка мониторинга через ELK/filebeat.yml
+        dest: /etc/filebeat/filebeat.yml
+        mode: '0755'
+      when: not filebeat_dir.stat.exists
+      
+    - name: Копирование logstash.yml в нужную директорию
+      copy:
+        src: /home/kosin/job_job/pet_project/5.Настройка мониторинга через ELK/logstash.yml
+        dest: /etc/logstash/config/logstash.yml
+        mode: '0755'
+      when: not logstash_conf_dir.stat.exists
+      
+    - name: Копирование logstash.conf в нужную директорию
+      copy:
+        src: /home/kosin/job_job/pet_project/5.Настройка мониторинга через ELK/logstash.conf
+        dest: /etc/logstash/pipeline/logstash.conf
+        mode: '0755'
+      when: not logstash_pipeline_dir.stat.exists      
+      
+    - name: Копирование compose_opensearch
+      copy:
+        src: /home/kosin/job_job/pet_project/5.Настройка мониторинга через ELK/compose_opensearch.yml
+        dest: /home/kosin/compose_opensearch.yml
+        mode: '0755'
+     
+    - name: Запуск docker compose для установки образов и создания контейнеров
+      command: docker compose -f /home/kosin/compose_opensearch.yml up -d
+      args:
+        chdir: /home/kosin
+
+    - name: Проверка статуса контейнеров после запуска
+      command: docker ps
+      register: docker_ps_output
+
+    - name: Показать статус контейнеров
+      debug:
+        msg: "{{ docker_ps_output.stdout }}"
+        
+- name: Установка filebeat
+  hosts: filebeat
+  become: True
+  
+  tasks:
+    
+    - name: Проверка наличия директории filebeat
+      stat:
+        path: /etc/filebeat
+      register: filebeat_dir
+
+    - name: Создание директории filebeat, если не существует
+      file:
+        path: /etc/filebeat
+        state: directory
+        mode: '0755'
+      when: not filebeat_dir.stat.exists
+      
+    - name: Копирование filebeat.yml в нужную директорию
+      copy:
+        src: /home/kmendeleev/git_hub/job_job/pet_project/5.Настройка мониторинга через ELK/filebeat.yml
+        dest: /etc/filebeat/filebeat.yml
+        mode: '0755'
+#      when: not filebeat_dir.stat.exists
+      
+    - name: Копирование compose_filebeat
+      copy:
+        src: /home/kmendeleev/git_hub/job_job/pet_project/5.Настройка мониторинга через ELK/compose_filebeat.yml
+        dest: /home/kosin/compose_filebeat.yml
+        mode: '0755'
+     
+    - name: Запуск docker compose для установки образов и создания контейнеров
+      command: docker compose -f /home/kosin/compose_filebeat.yml up -d
+      args:
+        chdir: /home/kosin
+
+    - name: Проверка статуса контейнеров после запуска
+      command: docker ps
+      register: docker_ps_output
+
+    - name: Показать статус контейнеров
+      debug:
+        msg: "{{ docker_ps_output.stdout }}"

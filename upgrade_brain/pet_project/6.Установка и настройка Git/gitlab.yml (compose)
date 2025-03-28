@@ -1,0 +1,23 @@
+version: '3.6'
+services:
+  gitlab:
+    image: gitlab/gitlab-ce
+    container_name: gitlab
+    restart: always
+    hostname: 'gitlab.mylittledev.ru'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        # Add any other gitlab.rb configuration here, each on its own line
+        external_url 'https://gitlab.mylittledev.ru'
+    ports:
+      - '80:80'
+      - '443:443'
+      - '2222:22'
+    volumes:
+      - '/etc/gitlab/config:/etc/gitlab'
+      - '/etc/gitlab/logs:/var/log/gitlab'
+      - '/etc/gitlab/data:/var/opt/gitlab'
+    shm_size: '256m'
+	
+sudo docker exec -it gitlab grep 'Password:' \
+/etc/gitlab/initial_root_password

@@ -1,0 +1,1 @@
+Бинарник node_exporter

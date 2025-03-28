@@ -1,0 +1,14 @@
+- name: Editing data_synchronizer
+  hosts: clusters
+  become: true
+  vars_files: /etc/ansible/vault.yml
+
+  tasks:
+    - name: copy unit for synchronizer
+      template: 
+        src: /etc/ansible/templates/data_synchronizer.service.j2
+        dest: /etc/systemd/system/data_synchronizer.service
+
+    - name: daemon restart
+      command: systemctl daemon-reload
+

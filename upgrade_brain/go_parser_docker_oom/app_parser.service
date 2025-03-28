@@ -1,0 +1,16 @@
+[Unit]
+Description=Backup Checker Service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/kosin
+ExecStart=/home/kosin/app_parser
+Restart=always
+RestartSec=5
+User=root
+StandardOutput=journal
+StandardError=journal
+Environment=HOME=/home/kosin
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+- name: Check Docker
+  hosts: all
+  become: true
+  tasks:
+    - name: Check running Docker containers
+      command: docker ps  # Исправлен лишний отступ
+      register: docker_output
+
+    - name: Output Docker status
+      debug:
+        var: docker_output.stdout
+

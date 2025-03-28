@@ -1,0 +1,16 @@
+---
+__postgresql_version: "{{ postgresql_version }}"
+__postgresql_repo: "https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm"
+__postgresql_disablerepo: "AppStream"
+__postgresql_enablerepo: "pgdg{{ __postgresql_version | replace('.', '') }}"
+__postgresql_data_dir: "/var/lib/pgsql/{{ __postgresql_version }}/data"
+__postgresql_bin_path: "/usr/pgsql-{{ __postgresql_version }}/bin"
+__postgresql_config_path: "/var/lib/pgsql/{{ __postgresql_version }}/data"
+__postgresql_initdb_command: "{{ __postgresql_bin_path }}/initdb"
+__postgresql_daemon: postgresql-{{ __postgresql_version }}
+__postgresql_packages:
+  - postgresql{{ __postgresql_version | replace('.', '') }}
+  - postgresql{{ __postgresql_version | replace('.', '') }}-server
+  - postgresql{{ __postgresql_version | replace('.', '') }}-contrib
+  - postgresql{{ __postgresql_version | replace('.', '') }}-libs
+  - postgresql{{ __postgresql_version | replace('.', '') }}-devel

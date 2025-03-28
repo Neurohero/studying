@@ -1,0 +1,33 @@
+- name: Установка и настройка PostgreSQL на CentOS8|9-Stream
+  hosts: all
+  become: yes
+  tasks:
+    - name: Отключение dnf модуля
+      command: dnf -qy module disable postgresql
+
+    - name: Установка PostgreSQL сервер
+      dnf:
+        name:
+          - postgresql15-server
+          - postgresql15
+        state: present
+#        nobest: true
+
+    - name: Выключение службы PostgreSQL
+      systemd:
+        name: postgresql-15
+        state: stopped
+        enabled: yes
+
+    - name: Установка дополнительных утилит для разработки
+      dnf:
+        name: postgresql15-devel
+        state: present
+        nobest: true
+
+    - name: Запуск и включение службы PostgreSQL
+      systemd:
+        name: postgresql-15
+        state: started
+        enabled: yes
+

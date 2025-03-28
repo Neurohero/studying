@@ -1,0 +1,5 @@
+- name: Установка PostgreSQL 12 на RedHat
+  hosts: database
+  roles:
+    - role: postgresql
+      become: yes

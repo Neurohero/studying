@@ -1,0 +1,623 @@
+
+PLAY [Check Docker] ************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [dc2-datamart-adb-master2]
+ok: [dc2-datamart-adb-master1]
+ok: [dc2-datamart-adb1]
+ok: [dc2-datamart-adb2]
+ok: [dc2-datamart-adb3]
+ok: [dc2-dns-01]
+ok: [dc2-dns-02]
+ok: [dc2-datamart-adb-adcm]
+ok: [dc2-datamart-adb-master3]
+ok: [dc2-datamart-app1]
+ok: [dc2-datamart-app2]
+ok: [dc2-datamart-adb-adcc]
+ok: [dc2-datamart-app3]
+ok: [dc2-datamart-adb4]
+ok: [dc2-datamart-bi1]
+ok: [dc2-datamart-adb5]
+ok: [dc2-datamart-bi2]
+ok: [dc2-datamart-bi3]
+ok: [dc2-datamart-bi5]
+ok: [dc2-datamart-bi4]
+ok: [dc2-datamart-bi7]
+ok: [dc2-datamart-bi6]
+ok: [dc2-datamart-bi8]
+ok: [dc2-datamart-pg-ksao1]
+ok: [dc2-dataexport-zookeeper1]
+ok: [dc2-dataexport-zookeeper2]
+ok: [dc2-dataexport-zookeeper3]
+ok: [dc2-dataexport-kafka2]
+ok: [dc2-dataexport-kafka1]
+ok: [dc2-dataexport-kafka3]
+ok: [dc2-dataexport-postgresql-standby1]
+ok: [dc2-dataexport-postgresql-standby2]
+ok: [dc2-dataexport-postgresql]
+ok: [dc2-dataexport-scheduler]
+ok: [dc2-dataexport-postman2]
+ok: [dc2-dataexport-front-2]
+ok: [dc2-dataexport-front]
+ok: [dc2-dataexport-nifi1]
+ok: [dc2-dataexport-nifi3]
+ok: [dc2-dataexport-nifi2]
+ok: [dc2-dataexport-postman1]
+ok: [dc2-dataexport-nifi4]
+ok: [dc2-dataexport-nifi5]
+ok: [dc2-dataexport-nifi7]
+ok: [dc2-dataexport-nifi6]
+ok: [dc2-dataexport-nifi8]
+ok: [dc2-dataexport-back2]
+ok: [dc2-dataexport-back]
+ok: [dc2-etl-zookeeper1]
+ok: [dc2-etl-zookeeper2]
+ok: [dc2-etl-zookeeper3]
+ok: [dc2-etl-kafka2]
+ok: [dc2-etl-kafka3]
+ok: [dc2-etl-kafka1]
+ok: [dc2-etl-postgresql]
+ok: [dc2-etl-postgresql-standby1]
+ok: [dc2-etl-front]
+ok: [dc2-etl-postgresql-standby2]
+ok: [dc2-etl-adcm]
+ok: [dc2-etl-nifi1]
+ok: [dc2-etl-nifi2]
+ok: [dc2-etl-nifi3]
+ok: [dc2-etl-nifi4]
+ok: [dc2-etl-nifi5]
+ok: [dc2-etl-nifi6]
+fatal: [dc2-dataexport-scheduler2]: UNREACHABLE! => {"changed": false, "msg": "Data could not be sent to remote host \"10.138.55.30\". Make sure this host can be reached over ssh: ssh: connect to host 10.138.55.30 port 22: Connection timed out\r\n", "unreachable": true}
+ok: [dc2-etl-nifi8]
+ok: [dc2-etl-nifi9]
+ok: [dc2-etl-nifi7]
+ok: [dc2-etl-nifi10]
+ok: [dc2-etl-nifi11]
+ok: [dc2-etl-nifi12]
+ok: [dc2-etl-nifi13]
+ok: [dc2-etl-nifi14]
+ok: [dc2-etl-nifi15]
+fatal: [dc2-etl-metrics-api1]: UNREACHABLE! => {"changed": false, "msg": "Data could not be sent to remote host \"10.138.54.142\". Make sure this host can be reached over ssh: ssh: connect to host 10.138.54.142 port 22: Connection timed out\r\n", "unreachable": true}
+fatal: [dc2-etl-balancer]: UNREACHABLE! => {"changed": false, "msg": "Data could not be sent to remote host \"10.138.54.145\". Make sure this host can be reached over ssh: ssh: connect to host 10.138.54.145 port 22: Connection timed out\r\n", "unreachable": true}
+ok: [dc2-etl-nifi40]
+ok: [dc2-etl-nifi22]
+ok: [dc2-etl-nifi23]
+ok: [dc2-etl-nifi41]
+ok: [dc2-etl-nifi24]
+ok: [dc2-etl-nifi42]
+ok: [dc2-etl-nifi26]
+ok: [dc2-etl-nifi25]
+ok: [dc2-etl-nifi27]
+ok: [dc2-etl-nifi28]
+ok: [dc2-etl-nifi29]
+ok: [dc2-etl-nifi31]
+ok: [dc2-etl-nifi30]
+ok: [dc2-etl-nifi33]
+ok: [dc2-etl-nifi32]
+ok: [dc2-etl-nifi34]
+ok: [dc2-etl-nifi35]
+ok: [dc2-etl-nifi36]
+ok: [dc2-etl-nifi37]
+ok: [dc2-etl-nifi38]
+ok: [dc2-etl-postgresql5]
+ok: [dc2-etl-nifi39]
+ok: [dc2-etl-postgresql7]
+ok: [dc2-etl-postgresql6]
+ok: [dc2-etl-redis1]
+ok: [dc2-etl-redis2]
+ok: [dc2-etl-redis5]
+ok: [dc2-etl-redis6]
+ok: [dc2-etl-redis7]
+ok: [dc2-etl-redis8]
+ok: [dc2-etl-redis9]
+ok: [dc2-etl-redis10]
+ok: [dc2-general-grafana]
+ok: [dc2-general-zabbix]
+ok: [dc2-general-kibana]
+ok: [dc2-general-graylog]
+ok: [dc2-general-avanpostFAM]
+ok: [dc2-general-postgresql]
+ok: [dc2-general-elasticmaster2]
+ok: [dc2-general-elasticmaster1]
+ok: [dc2-general-elasticmaster3]
+ok: [dc2-general-GN-02]
+ok: [dc2-general-inx-01]
+ok: [dc2-general-elasticmaster]
+ok: [dc2-general-GN-01]
+ok: [dc2-general-prometheus]
+ok: [dc2-general-nginx1]
+ok: [dc2-general-nginx2]
+ok: [dc2-general-nginx3]
+ok: [dc2-general-nginx4]
+ok: [dc2-nsud-adcm]
+ok: [dc2-nsud-adb-master1]
+ok: [dc2-nsud-adb-master2]
+ok: [dc2-nsud-adb1]
+ok: [dc2-nsud-adb2]
+ok: [dc2-nsud-adb3]
+ok: [dc2-nsud-ads-zookeeper1]
+ok: [dc2-nsud-ads-zookeeper2]
+ok: [dc2-nsud-ads-zookeeper3]
+ok: [dc2-nsud-ads-kafka1]
+ok: [dc2-nsud-ads-kafka2]
+ok: [dc2-nsud-smev31]
+ok: [dc2-nsud-smev32]
+ok: [dc2-general-db-audit01]
+ok: [dc2-general-db-audit02]
+ok: [dc2-nsud-db]
+ok: [dc2-nsud-router-rabbitmq]
+ok: [dc2-nsud-router-zookeeper]
+ok: [dc2-nsud-router-postgres]
+ok: [dc2-nsud-agent-podd1]
+ok: [dc2-nsud-router-docker]
+ok: [dc2-nsud-adapter-podd]
+ok: [dc2-nsud-prostore-core]
+ok: [dc2-nsud-prostore-core2]
+ok: [dc2-general-vault]
+ok: [dc2-nsud-etl]
+ok: [dc2-nsud-prometheus]
+ok: [dc2-nsud-grafana]
+ok: [dc2-kv-app]
+fatal: [dc2-nsud-adapter-skv]: UNREACHABLE! => {"changed": false, "msg": "Data could not be sent to remote host \"10.138.54.36\". Make sure this host can be reached over ssh: ssh: connect to host 10.138.54.36 port 22: Connection timed out\r\n", "unreachable": true}
+fatal: [dc2-nsud-agent-podd2]: UNREACHABLE! => {"changed": false, "msg": "Data could not be sent to remote host \"10.138.54.31\". Make sure this host can be reached over ssh: ssh: connect to host 10.138.54.31 port 22: Connection timed out\r\n", "unreachable": true}
+ok: [dc2-kv-postgres2]
+ok: [dc2-kv-app2]
+ok: [dc2-kv-postgres]
+ok: [dc2-kv-app-bal]
+fatal: [dc2-nsud-prostore-monitor]: UNREACHABLE! => {"changed": false, "msg": "Data could not be sent to remote host \"10.138.54.22\". Make sure this host can be reached over ssh: ssh: connect to host 10.138.54.22 port 22: Connection timed out\r\n", "unreachable": true}
+
+TASK [Check running Docker containers] *****************************************
+fatal: [dc2-datamart-adb-master2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-datamart-adb-master1]: FAILED! => {"changed": true, "cmd": ["docker", "ps"], "delta": "0:00:00.026883", "end": "2024-12-24 23:07:52.628854", "msg": "non-zero return code", "rc": 1, "start": "2024-12-24 23:07:52.601971", "stderr": "Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?", "stderr_lines": ["Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?"], "stdout": "", "stdout_lines": []}
+fatal: [dc2-datamart-adb3]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-dns-01]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-datamart-adb2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-dns-02]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-datamart-adb-adcm]
+fatal: [dc2-datamart-adb-master3]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-datamart-adb-adcc]
+changed: [dc2-datamart-app2]
+changed: [dc2-datamart-app1]
+changed: [dc2-datamart-app3]
+changed: [dc2-datamart-bi1]
+fatal: [dc2-datamart-adb4]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-datamart-bi2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-datamart-bi3]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-datamart-adb1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-datamart-bi4]
+fatal: [dc2-datamart-adb5]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-datamart-bi5]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-datamart-bi6]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-datamart-bi7]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-datamart-bi8]
+fatal: [dc2-datamart-pg-ksao1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-dataexport-zookeeper1]
+changed: [dc2-dataexport-zookeeper2]
+changed: [dc2-dataexport-zookeeper3]
+changed: [dc2-dataexport-kafka2]
+fatal: [dc2-dataexport-kafka1]: FAILED! => {"changed": true, "cmd": ["docker", "ps"], "delta": "0:00:00.074373", "end": "2024-12-24 23:07:59.100060", "msg": "non-zero return code", "rc": 1, "start": "2024-12-24 23:07:59.025687", "stderr": "Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?", "stderr_lines": ["Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?"], "stdout": "", "stdout_lines": []}
+changed: [dc2-dataexport-kafka3]
+fatal: [dc2-dataexport-postgresql-standby1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-dataexport-postgresql]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-dataexport-postgresql-standby2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-dataexport-scheduler]
+changed: [dc2-dataexport-postman2]
+changed: [dc2-dataexport-front-2]
+changed: [dc2-dataexport-front]
+changed: [dc2-dataexport-nifi1]
+changed: [dc2-dataexport-nifi3]
+changed: [dc2-dataexport-postman1]
+changed: [dc2-dataexport-nifi2]
+changed: [dc2-dataexport-nifi4]
+changed: [dc2-dataexport-nifi5]
+changed: [dc2-dataexport-nifi7]
+changed: [dc2-dataexport-nifi6]
+changed: [dc2-dataexport-nifi8]
+changed: [dc2-dataexport-back]
+changed: [dc2-dataexport-back2]
+fatal: [dc2-etl-zookeeper1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-zookeeper2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-zookeeper3]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-kafka2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-kafka1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-kafka3]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-postgresql-standby1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-postgresql]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-etl-front]
+fatal: [dc2-etl-postgresql-standby2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-etl-adcm]
+fatal: [dc2-etl-nifi2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-etl-nifi1]
+fatal: [dc2-etl-nifi3]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi4]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi6]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-etl-nifi5]
+fatal: [dc2-etl-nifi8]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi9]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi7]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi10]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi11]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi13]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-etl-nifi12]
+fatal: [dc2-etl-nifi14]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi15]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi22]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi23]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi24]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi25]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi26]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi27]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi28]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi29]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi30]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi31]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi33]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi32]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi40]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi34]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi35]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi36]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi41]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi37]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi39]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-postgresql5]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi38]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-nifi42]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-postgresql7]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-redis1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-redis2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-postgresql6]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-redis5]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-redis7]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-redis6]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-redis8]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-redis9]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-etl-redis10]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-grafana]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-graylog]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-zabbix]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-kibana]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-general-avanpostFAM]
+fatal: [dc2-general-postgresql]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-elasticmaster2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-elasticmaster1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-elasticmaster]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-GN-02]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-elasticmaster3]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-inx-01]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-db-audit01]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-db-audit02]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-nginx1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-prometheus]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-nginx2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-GN-01]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-nginx3]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-vault]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-general-nginx4]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-adb-master1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-adb-master2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-nsud-adcm]
+fatal: [dc2-nsud-adb1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-adb2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-ads-zookeeper1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-nsud-adb3]
+fatal: [dc2-nsud-ads-zookeeper3]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-ads-kafka2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-ads-kafka1]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory: b'docker': b'docker'", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-nsud-smev31]
+fatal: [dc2-nsud-smev32]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-router-rabbitmq]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-db]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-router-zookeeper]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-ads-zookeeper2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-router-postgres]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-nsud-router-docker]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-nsud-agent-podd1]
+changed: [dc2-nsud-adapter-podd]
+changed: [dc2-nsud-prostore-core]
+changed: [dc2-nsud-prostore-core2]
+changed: [dc2-nsud-etl]
+fatal: [dc2-nsud-prometheus]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-kv-postgres]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+changed: [dc2-kv-app]
+fatal: [dc2-nsud-grafana]: FAILED! => {"changed": true, "cmd": ["docker", "ps"], "delta": "0:00:00.132708", "end": "2024-12-24 23:08:19.048761", "msg": "non-zero return code", "rc": 1, "start": "2024-12-24 23:08:18.916053", "stderr": "Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?", "stderr_lines": ["Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?"], "stdout": "", "stdout_lines": []}
+fatal: [dc2-kv-postgres2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-kv-app2]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+fatal: [dc2-kv-app-bal]: FAILED! => {"changed": false, "cmd": "docker ps", "msg": "[Errno 2] No such file or directory", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [Output Docker status] ****************************************************
+ok: [dc2-datamart-adb-adcm] => {
+    "docker_output.stdout": "CONTAINER ID        IMAGE                                                               COMMAND                  CREATED             STATUS              PORTS                                                                                                                                           NAMES\n8dcb8e471f4a        hub.arenadata.io/adcm/adcm:latest                                   \"/etc/startup.sh\"        6 months ago        Up 3 months         0.0.0.0:8000->8000/tcp                                                                                                                          adcm\nb518db18434d        0e55f47c9d94                                                        \"/run.sh\"                21 months ago       Up 3 months         0.0.0.0:3000->3000/tcp                                                                                                                          grafana\n98fdd400239b        ae898c350e2b                                                        \"/entrypoint\"            21 months ago       Up 3 months         2003-2004/tcp, 2014/tcp, 2023-2024/tcp, 8080/tcp, 0.0.0.0:80->80/tcp, 8125-8126/tcp, 0.0.0.0:2016->2016/udp, 8125/udp, 0.0.0.0:2015->2013/tcp   graphite\nf4e5c967a585        hub.arenadata.io/et-community/registry:2.8.1-et-2023020200-x86_64   \"/entrypoint.sh /e...\"   21 months ago       Up 3 months         0.0.0.0:443->443/tcp, 5000/tcp                                                                                                                  registry\nfe44d6ff5cfb        hub.arenadata.io/et-community/nginx:1.23.3-et-2023020200-x86_64     \"/docker-entrypoin...\"   21 months ago       Up 3 months         0.0.0.0:81->80/tcp                                                                                                                              httprepo"
+}
+ok: [dc2-datamart-adb-adcc] => {
+    "docker_output.stdout": "CONTAINER ID        IMAGE                                                                                                   COMMAND                  CREATED             STATUS              PORTS                                                      NAMES\n229222d561fa        10.138.55.99:443/hub.adsw.io/adb-community/nginx:1.21.6-adb-6.22.1_arenadata41-x86_64                   \"/docker-entrypoin...\"   6 months ago        Up 3 months         80/tcp, 0.0.0.0:81->81/tcp                                 adcc_adcc_proxy_1\n99fabc110330        10.138.55.99:443/hub.adsw.io/adb-enterprise/adcc-web-server:4.1.0-adb-6.22.1_arenadata41-x86_64         \"docker-entrypoint...\"   6 months ago        Up 3 months         0.0.0.0:3000->3000/tcp                                     adcc_adcc_web_server_1\n876c9c0b8e98        10.138.55.99:443/hub.adsw.io/adb-enterprise/adcc-ui-server:4.1.0-adb-6.22.1_arenadata41-x86_64          \"sh -c 'java $JAVA...\"   6 months ago        Up 3 months         0.0.0.0:6566->6566/tcp, 0.0.0.0:8890->8890/tcp             adcc_adcc_ui_server_1\nf41775b37408        10.138.55.99:443/hub.adsw.io/adb-enterprise/adcc-registry-service:4.1.0-adb-6.22.1_arenadata41-x86_64   \"sh -c 'java $JAVA...\"   15 months ago       Up 3 months         0.0.0.0:6567->6567/tcp, 0.0.0.0:8761->8761/tcp             adcc_adcc_registry_service_1\n281e6ea0ca17        10.138.55.99:443/hub.adsw.io/adb-community/clickhouse-server:21.9.2.17-adb-6.22.1_arenadata41-x86_64    \"/entrypoint.sh\"         15 months ago       Up 3 months         0.0.0.0:8123->8123/tcp, 0.0.0.0:9000->9000/tcp, 9009/tcp   adcc_clickhouse_1\n746936cae276        10.138.55.99:443/hub.adsw.io/adb-enterprise/adcc-scheduler:4.1.0-adb-6.22.1_arenadata41-x86_64          \"sh -c 'java $JAVA...\"   15 months ago       Up 3 months         0.0.0.0:6572->6572/tcp, 0.0.0.0:38006->38000/tcp           adcc_adcc_scheduler_1\n9042d843c7ce        10.138.55.99:443/hub.adsw.io/adb-enterprise/planchecker:1.0.1-adb-6.22.1_arenadata41-x86_64             \"./app\"                  15 months ago       Up 3 months         0.0.0.0:8887->8887/tcp                                     adcc_planchecker_1\n9eed703905dd        10.138.55.99:443/hub.adsw.io/adb-community/postgres:12.7-adb-6.22.1_arenadata41-x86_64                  \"docker-entrypoint...\"   15 months ago       Up 3 months         0.0.0.0:5433->5432/tcp                                     adcc_database_1\naa38201e412e        10.138.55.99:443/hub.adsw.io/adb-enterprise/adcc-backend-server:4.1.0-adb-6.22.1_arenadata41-x86_64     \"sh -c 'java $JAVA...\"   15 months ago       Up 6 weeks          0.0.0.0:6565->6565/tcp, 0.0.0.0:8081->8081/tcp             adcc_adcc_backend_server_1"
+}
+ok: [dc2-datamart-app1] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                    COMMAND                  CREATED         STATUS         PORTS                                       NAMES\n16b114ddea81   nexus.fgis.test:8444/jodconverter:rest   \"/docker-entrypoint.…\"   15 months ago   Up 15 months   0.0.0.0:8881->8080/tcp, :::8881->8080/tcp   converter_ice_lo"
+}
+ok: [dc2-datamart-app2] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                          COMMAND                  CREATED       STATUS        PORTS                                       NAMES\n41c370bbea5d   eugenmayer/jodconverter:rest   \"/docker-entrypoint.…\"   2 years ago   Up 5 months   0.0.0.0:8881->8080/tcp, :::8881->8080/tcp   converter_ice_lo"
+}
+ok: [dc2-datamart-app3] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                          COMMAND                  CREATED       STATUS         PORTS                                       NAMES\n2deb5ac33841   eugenmayer/jodconverter:rest   \"/docker-entrypoint.…\"   2 years ago   Up 18 months   0.0.0.0:8881->8080/tcp, :::8881->8080/tcp   converter_ice_lo"
+}
+ok: [dc2-datamart-bi1] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES"
+}
+ok: [dc2-datamart-bi4] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                COMMAND                  CREATED        STATUS        PORTS                                         NAMES\n5039a37f7da2   constructor/service/renderer:2.3.2                   \"docker-entrypoint.s…\"   22 hours ago   Up 21 hours   3001/tcp                                      swarm_constructor-service-renderer_1\n989f8a5640c5   registry.polymatica.ru/constructor/frontend:2.4.21   \"/docker-entrypoint.…\"   22 hours ago   Up 21 hours   0.0.0.0:80->80/tcp, :::80->80/tcp             swarm_constructor-nginx_1\n78c9fb71c789   registry.polymatica.ru/constructor/api:2.4.23        \"sh entrypoint.sh\"       22 hours ago   Up 21 hours   8081/tcp                                      swarm_constructor-api_1\n3c470a446fb7   postgres:11                                          \"docker-entrypoint.s…\"   22 hours ago   Up 21 hours   0.0.0.0:54320->5432/tcp, :::54320->5432/tcp   swarm_postgresql_1\n37db374779cf   mongo:4.4                                            \"docker-entrypoint.s…\"   22 hours ago   Up 21 hours   27017/tcp                                     swarm_mongo_1\nafc553069ce8   redis:6-alpine                                       \"docker-entrypoint.s…\"   22 hours ago   Up 21 hours   6379/tcp                                      swarm_redis_1"
+}
+ok: [dc2-datamart-bi8] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                          COMMAND                  CREATED         STATUS         PORTS                                       NAMES\n52c84422a536   eugenmayer/jodconverter:rest   \"/docker-entrypoint.…\"   22 months ago   Up 22 months   0.0.0.0:8881->8080/tcp, :::8881->8080/tcp   converter_ice_lo"
+}
+ok: [dc2-dataexport-zookeeper1] => {
+    "docker_output.stdout": "CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES"
+}
+ok: [dc2-dataexport-zookeeper2] => {
+    "docker_output.stdout": "CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES"
+}
+ok: [dc2-dataexport-zookeeper3] => {
+    "docker_output.stdout": "CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES"
+}
+ok: [dc2-dataexport-kafka2] => {
+    "docker_output.stdout": "CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES"
+}
+ok: [dc2-dataexport-kafka3] => {
+    "docker_output.stdout": "CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES"
+}
+ok: [dc2-dataexport-scheduler] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                            COMMAND                  CREATED         STATUS                         PORTS     NAMES\n4591d6291ccb   localhost:8444/rosreestr/kps/kps-scheduler:dev   \"/bin/sh -c 'exec ja…\"   20 months ago   Restarting (1) 5 seconds ago             kps-scheduler"
+}
+ok: [dc2-dataexport-postman1] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                COMMAND                  CREATED       STATUS       PORTS     NAMES\n544df6f71d8e   nexus.fgis.test:8444/rosreestr/kps/kps-postman:dev   \"/bin/sh -c 'exec ja…\"   11 days ago   Up 11 days             kps-postman"
+}
+ok: [dc2-dataexport-postman2] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                COMMAND                  CREATED       STATUS       PORTS     NAMES\n7beac78e52ae   nexus.fgis.test:8444/rosreestr/kps/kps-postman:dev   \"/bin/sh -c 'exec ja…\"   11 days ago   Up 11 days             kps-postman"
+}
+ok: [dc2-dataexport-front] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                        COMMAND                  CREATED      STATUS      PORTS     NAMES\n8be33ac91066   nexus.fgis.test:8444/rosreestr/kps/kps-front:release-1-2-0   \"/docker-entrypoint.…\"   4 days ago   Up 4 days             kps-front"
+}
+ok: [dc2-dataexport-front-2] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                        COMMAND                  CREATED         STATUS         PORTS                               NAMES\na39f5bb3e49c   localhost:8444/rosreestr/kps/kps-front:dev   \"/docker-entrypoint.…\"   15 months ago   Up 15 months   0.0.0.0:80->80/tcp, :::80->80/tcp   kps-front"
+}
+ok: [dc2-dataexport-nifi1] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES"
+}
+ok: [dc2-dataexport-nifi2] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                  COMMAND                  CREATED        STATUS        PORTS                                       NAMES\n0c16174758d8   localhost:8444/rosreestr/kps/kps-extractor-rosim:dev   \"/bin/sh -c 'exec ja…\"   7 months ago   Up 7 months   0.0.0.0:8087->8087/tcp, :::8087->8087/tcp   kps-extractor-rosim"
+}
+ok: [dc2-dataexport-nifi3] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                  COMMAND                  CREATED        STATUS        PORTS                                       NAMES\nb31cf2365f1a   localhost:8444/rosreestr/kps/kps-extractor-fsvps:dev   \"/bin/sh -c 'exec ja…\"   5 months ago   Up 5 months   0.0.0.0:8083->8083/tcp, :::8083->8083/tcp   kps-extractor-fsvps"
+}
+ok: [dc2-dataexport-nifi4] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                              COMMAND                  CREATED        STATUS        PORTS                                                 NAMES\nc09fe26c4c3e   localhost:8444/rosreestr/kps/kps-extractor-fns-302:release-1-3-0   \"/bin/sh -c 'exec ja…\"   9 hours ago    Up 9 hours    0.0.0.0:8081->8081/tcp, :::8081->8081/tcp             kps-extractor-fns-302\nbb8da3cb2e5b   localhost:8444/rosreestr/kps/kps-extractor-fns-302-etl:dev         \"/bin/sh -c 'exec ja…\"   3 weeks ago    Up 3 weeks    0.0.0.0:8090->8090/tcp, :::8090->8090/tcp             kps-extractor-fns302-etl\n0dd935d9f871   localhost:8444/rosreestr/kps/kps-extractor-fns-646:dev             \"/bin/sh -c 'exec ja…\"   9 months ago   Up 9 months   0.0.0.0:8082->8082/tcp, :::8082->8082/tcp, 8092/tcp   kps-extractor-fns-646"
+}
+ok: [dc2-dataexport-nifi5] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                       COMMAND                  CREATED       STATUS       PORTS     NAMES\ne4833339d94e   nexus.fgis.test:8444/rosreestr/kps/kps-extractor-fias:dev   \"/bin/sh -c 'exec ja…\"   7 weeks ago   Up 7 weeks             kps-extractor-fias"
+}
+ok: [dc2-dataexport-nifi6] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                  COMMAND                  CREATED       STATUS       PORTS                                       NAMES\n6a9e640afde5   localhost:8444/rosreestr/kps/kps-extractor-eiszs:dev   \"/bin/sh -c 'exec ja…\"   2 weeks ago   Up 2 weeks   0.0.0.0:8085->8085/tcp, :::8085->8085/tcp   kps-extractor-eiszs"
+}
+ok: [dc2-dataexport-nifi7] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                 COMMAND                  CREATED        STATUS        PORTS                                       NAMES\n91839a9c683c   localhost:8444/rosreestr/kps/kps-extractor-voda:dev   \"/bin/sh -c 'exec ja…\"   5 months ago   Up 5 months   0.0.0.0:8086->8086/tcp, :::8086->8086/tcp   kps-extractor-voda"
+}
+ok: [dc2-dataexport-nifi8] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                    COMMAND                  CREATED        STATUS        PORTS                                       NAMES\n68455fe8e497   localhost:8444/rosreestr/kps/kps-extractor-zkx:dev       \"/bin/sh -c 'exec ja…\"   3 months ago   Up 3 months   0.0.0.0:8088->8088/tcp, :::8088->8088/tcp   kps-extractor-zkx\n0b0447605ac8   localhost:8444/rosreestr/kps/kps-extractor-zkx-etl:dev   \"/bin/sh -c 'exec ja…\"   5 months ago   Up 5 weeks    0.0.0.0:8097->8097/tcp, :::8097->8097/tcp   kps-extractor-zkx-etl"
+}
+ok: [dc2-dataexport-back] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                  COMMAND                  CREATED      STATUS      PORTS     NAMES\n52d2f087028e   nexus.fgis.test:8444/rosreestr/kps/kps-back-rest:dev   \"/bin/sh -c 'exec ja…\"   5 days ago   Up 5 days             kps-back-rest"
+}
+ok: [dc2-dataexport-back2] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                  COMMAND                  CREATED      STATUS      PORTS     NAMES\n3d10f211e9c6   nexus.fgis.test:8444/rosreestr/kps/kps-back-rest:dev   \"/bin/sh -c 'exec ja…\"   5 days ago   Up 5 days             kps-back-rest"
+}
+ok: [dc2-etl-front] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                                        COMMAND                  CREATED        STATUS        PORTS                                       NAMES\nade9a751ea90   localhost:8444/rosreestr/etl/kpd-ui-front/kpd-front:2-0-2                    \"/docker-entrypoint.…\"   11 days ago    Up 11 days    0.0.0.0:8086->80/tcp, :::8086->80/tcp       kpd-front\n82676688a74e   localhost:8444/rosreestr/etl/nifi-scheduler-kpd/nifi-scheduler-kpd:develop   \"/bin/sh -c 'exec ja…\"   2 months ago   Up 5 days     0.0.0.0:8087->8087/tcp, :::8087->8087/tcp   nifi-scheduler-kpd\n0cd5f3172ab1   localhost:8444/rosreestr/etl/kpd-nginx/kpd-nginx:main                        \"/docker-entrypoint.…\"   7 months ago   Up 7 months   0.0.0.0:80->80/tcp, :::80->80/tcp           kpd-nginx"
+}
+ok: [dc2-etl-adcm] => {
+    "docker_output.stdout": "CONTAINER ID        IMAGE                                                                                              COMMAND                  CREATED             STATUS              PORTS                                                                                                                                           NAMES\nf3526c936435        0e55f47c9d94                                                                                       \"/run.sh\"                2 years ago         Up 5 months         0.0.0.0:3000->3000/tcp                                                                                                                          grafana\na7f81e31b742        10.138.54.169:443/hub.arenadata.io/adm-community/graphite-statsd:1.1.5_arenadata3-adm-3.3-x86_64   \"/entrypoint\"            2 years ago         Up 5 months         2003-2004/tcp, 2014/tcp, 2023-2024/tcp, 8080/tcp, 0.0.0.0:80->80/tcp, 8125-8126/tcp, 0.0.0.0:2016->2016/udp, 8125/udp, 0.0.0.0:2015->2013/tcp   graphite\n239ed2a05df5        hub.arenadata.io/et-community/registry:latest-x86_64                                               \"registry serve /e...\"   2 years ago         Up 5 months         0.0.0.0:443->443/tcp, 5000/tcp                                                                                                                  registry\n5d930e80e708        hub.arenadata.io/et-community/nginx:latest-x86_64                                                  \"/docker-entrypoin...\"   2 years ago         Up 5 months         0.0.0.0:81->80/tcp                                                                                                                              httprepo"
+}
+ok: [dc2-etl-nifi5] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                                        COMMAND                  CREATED        STATUS                            PORTS                                       NAMES\nae7b1e558b7f   localhost:8444/rosreestr/etl/kpd-ui-front/kpd-front:2-0-1                    \"/docker-entrypoint.…\"   4 months ago   Restarting (127) 42 seconds ago                                               kpd-front\n6d0bb25e786d   localhost:8444/rosreestr/etl/nifi-scheduler-kpd/nifi-scheduler-kpd:develop   \"/bin/sh -c 'exec ja…\"   6 months ago   Up 2 months                       0.0.0.0:8087->8087/tcp, :::8087->8087/tcp   nifi-scheduler-kpd\n5543e357a35d   localhost:8444/rosreestr/etl/kpd-nginx/kpd-nginx:main                        \"/docker-entrypoint.…\"   7 months ago   Up 2 months                       0.0.0.0:80->80/tcp, :::80->80/tcp           kpd-nginx"
+}
+ok: [dc2-etl-nifi1] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                                        COMMAND                  CREATED        STATUS        PORTS                                       NAMES\n4828eb373321   localhost:8444/rosreestr/etl/kpd-ui-front/kpd-front:2-0-2                    \"/docker-entrypoint.…\"   11 days ago    Up 11 days    0.0.0.0:8086->80/tcp, :::8086->80/tcp       kpd-front\n675fb9510854   localhost:8444/rosreestr/etl/kpd-grp-registry-api/kpd-registry-api:master    \"/bin/sh -c 'exec ja…\"   8 weeks ago    Up 8 weeks    0.0.0.0:8090->8090/tcp, :::8090->8090/tcp   kpd-registry-api\neaee189a320a   localhost:8444/rosreestr/etl/nifi-scheduler-kpd/nifi-scheduler-kpd:develop   \"/bin/sh -c 'exec ja…\"   6 months ago   Up 6 months   0.0.0.0:8087->8087/tcp, :::8087->8087/tcp   nifi-scheduler-kpd\naf34df54aef0   localhost:8444/rosreestr/etl/kpd-nginx/kpd-nginx:main                        \"/docker-entrypoint.…\"   7 months ago   Up 7 months   0.0.0.0:80->80/tcp, :::80->80/tcp           kpd-nginx"
+}
+ok: [dc2-etl-nifi12] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                     COMMAND                  CREATED         STATUS         PORTS                                       NAMES\ncb69a4faec49   localhost:8444/rosreestr/etl/rr_esunsi_v1_exporter:main   \"/bin/sh -c 'exec ja…\"   12 months ago   Up 12 months   0.0.0.0:8993->8993/tcp, :::8993->8993/tcp   rr_esunsi_v1_exporter"
+}
+ok: [dc2-nsud-adcm] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                  COMMAND                  CREATED         STATUS         PORTS                                            NAMES\nf809803bfdfb   nexus.datamart.ru/dms/datamart:2.4.1   \"/bin/bash -lc /app/…\"   6 months ago    Up 6 months                                                     datamartstudio_resque_1\n788a4fb1f78e   nexus.datamart.ru/dms/datamart:2.4.1   \"/bin/bash -lc /app/…\"   6 months ago    Up 6 months    0.0.0.0:8088->5000/tcp, 0.0.0.0:8089->9394/tcp   datamartstudio_app_1\n7edfd9ee7d10   nexus.datamart.ru/dms/redis:alpine     \"docker-entrypoint.s…\"   6 months ago    Up 6 months    0.0.0.0:6380->6379/tcp                           datamartstudio_redis_1\nb0e35514be6e   gitea/gitea:1.15.3                     \"/usr/bin/entrypoint…\"   17 months ago   Up 6 months    22/tcp, 0.0.0.0:3030->3000/tcp                   datamartstudio_gitea_1\n2268cba7948c   sonatype/nexus3:3.35.0                 \"sh -c ${SONATYPE_DI…\"   19 months ago   Up 6 months    0.0.0.0:8081-8082->8081-8082/tcp                 datamartstudio_nexus_1\nb124c636991b   google/cadvisor:latest                 \"/usr/bin/cadvisor -…\"   20 months ago   Up 20 months   0.0.0.0:8099->8080/tcp                           cadvisor\n5a4d79ecbd6c   tophfr/pg_activity                     \"pg_activity\"            20 months ago   Up 20 months                                                    pg_activity\n0f7019065ba2   postgres:13.4-buster                   \"docker-entrypoint.s…\"   21 months ago   Up 6 months    5432/tcp, 127.0.0.1:55432->55432/tcp             datamartstudio_db_1\nc74886e121d7   nginx:latest                           \"/docker-entrypoint.…\"   3 years ago     Up 15 months                                                    nginx\n3f7acc5082cb   arenadata/adcm:latest                  \"/etc/startup.sh\"        3 years ago     Up 15 months                                                    adcm"
+}
+ok: [dc2-general-avanpostFAM] => {
+    "docker_output.stdout": "CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES"
+}
+ok: [dc2-nsud-adb3] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES"
+}
+ok: [dc2-nsud-smev31] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                          COMMAND            CREATED       STATUS        PORTS     NAMES\na5945a70470a   127.0.0.1:8882/printable-form-service:1.13.0   \"/entrypoint.sh\"   13 days ago   Up 12 hours             printable-form-service-72"
+}
+ok: [dc2-nsud-agent-podd1] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                              COMMAND                  CREATED         STATUS         PORTS                    NAMES\n66112cf7f781   127.0.0.1:8882/podd-agent:3.11.2   \"/docker-entrypoint.…\"   2 months ago    Up 9 days                               podd-agent-59\n723f51ccb05c   google/cadvisor:latest             \"/usr/bin/cadvisor -…\"   15 months ago   Up 15 months   0.0.0.0:8199->8080/tcp   cadvisor"
+}
+ok: [dc2-nsud-adapter-podd] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                COMMAND                  CREATED         STATUS         PORTS                                       NAMES\ncb4a3bc300f5   127.0.0.1:8882/printable-form-service:1.13.0         \"/entrypoint.sh\"         7 days ago      Up 7 days                                                  printable-form-service-58\n747ec7c750a5   127.0.0.1:8882/podd-adapter-mppr:1.13.0              \"/entrypoint.sh\"         5 months ago    Up 9 days                                                  podd-adapter-mppr-65\ncba96a3116fa   127.0.0.1:8882/podd-adapter-mppw:1.13.0              \"/entrypoint.sh\"         5 months ago    Up 5 months                                                podd-adapter-mppw-66\n6db06558fd91   127.0.0.1:8882/podd-adapter-query:1.13.0             \"/entrypoint.sh\"         5 months ago    Up 9 days                                                  podd-adapter-query-57\nc9edeb9f579f   127.0.0.1:8882/counter-provider:1.13.0               \"/entrypoint.sh\"         6 months ago    Up 6 months                                                counter-provider-54\n4caa5e2e79e6   localhost:8444/rosreestr/nsud/nsud-adapter-skv:dev   \"/bin/sh -c 'exec ja…\"   15 months ago   Up 10 months   0.0.0.0:8091->1213/tcp, :::8091->1213/tcp   nsud-adapter-skv\ne222e525c485   google/cadvisor:latest                               \"/usr/bin/cadvisor -…\"   15 months ago   Up 10 months   0.0.0.0:8199->8080/tcp                      cadvisor"
+}
+ok: [dc2-nsud-prostore-core] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                           COMMAND                  CREATED         STATUS         PORTS                    NAMES\ncfda6026a2f3   127.0.0.1:8882/dtm-query-execution-core:6.8.1   \"java -jar ./dtm-que…\"   6 months ago    Up 2 months                             dtm-query-execution-core-67\n908fd2ee722b   127.0.0.1:8882/dtm-query-execution-core:6.8.1   \"java -jar ./dtm-que…\"   6 months ago    Up 6 months                             dtm-query-execution-core-52\n74fae681e41c   google/cadvisor:latest                          \"/usr/bin/cadvisor -…\"   15 months ago   Up 15 months   0.0.0.0:8199->8080/tcp   cadvisor"
+}
+ok: [dc2-nsud-prostore-core2] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                           COMMAND                  CREATED         STATUS        PORTS                    NAMES\n9266e069f210   127.0.0.1:8882/dtm-query-execution-core:6.8.1   \"java -jar ./dtm-que…\"   4 months ago    Up 2 months                            dtm-query-execution-core-73\n5f355ba585d0   127.0.0.1:8882/dtm-query-execution-core:6.8.1   \"java -jar ./dtm-que…\"   6 months ago    Up 2 months                            dtm-query-execution-core-71\nb2085242a461   google/cadvisor:latest                          \"/usr/bin/cadvisor -…\"   10 months ago   Up 7 months   0.0.0.0:8199->8080/tcp   cadvisor"
+}
+ok: [dc2-nsud-etl] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                 COMMAND                  CREATED        STATUS        PORTS                                       NAMES\n24e1139d4e62   localhost:8444/rosreestr/nsud/podd-log-service2:dev   \"/bin/sh -c 'exec ja…\"   4 months ago   Up 4 months   0.0.0.0:9091->9091/tcp, :::9091->9091/tcp   podd-log-service\n1c975a249425   google/cadvisor:latest                                \"/usr/bin/cadvisor -…\"   5 months ago   Up 5 months   0.0.0.0:8199->8080/tcp                      cadvisor"
+}
+ok: [dc2-kv-app] => {
+    "docker_output.stdout": "CONTAINER ID   IMAGE                                                   COMMAND                  CREATED        STATUS        PORTS                                                                                                                                       NAMES\nc321ba07d82d   nexus.fgis.test:8445/fgis_egrn/vd/kvv/kvv-flc:1.0.2rr   \"java -jar app.jar\"      32 hours ago   Up 32 hours   0.0.0.0:4309->4309/tcp, :::4309->4309/tcp, 8085/tcp                                                                                         kvv-flc\n0dc381d8fc76   nexus.fgis.test:8445/fgis_egrn/vd/kvv/kvv:1.0.6rr       \"/bin/sh -c 'export …\"   32 hours ago   Up 32 hours   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp, 0.0.0.0:8080->8080/tcp, :::8080->8080/tcp, 0.0.0.0:9000->9000/tcp, :::9000->9000/tcp, 8089/tcp   kvv\n6779a8a19cb5   google/cadvisor:latest                                  \"/usr/bin/cadvisor -…\"   3 weeks ago    Up 32 hours   0.0.0.0:8199->8080/tcp                                                                                                                      cadvisor"
+}
+
+PLAY RECAP *********************************************************************
+dc2-dataexport-back        : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-back2       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-front       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-front-2     : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-kafka1      : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-kafka2      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-kafka3      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-nifi1       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-nifi2       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-nifi3       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-nifi4       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-nifi5       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-nifi6       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-nifi7       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-nifi8       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-postgresql  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-postgresql-standby1 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-postgresql-standby2 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-postman1    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-postman2    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-scheduler   : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-scheduler2  : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-zookeeper1  : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-zookeeper2  : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-dataexport-zookeeper3  : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-datamart-adb-adcc      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-datamart-adb-adcm      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-datamart-adb-master1   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-adb-master2   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-adb-master3   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-adb1          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-adb2          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-adb3          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-adb4          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-adb5          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-app1          : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-datamart-app2          : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-datamart-app3          : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-datamart-bi1           : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-datamart-bi2           : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-bi3           : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-bi4           : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-datamart-bi5           : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-bi6           : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-bi7           : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-datamart-bi8           : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-datamart-pg-ksao1      : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-dns-01                 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-dns-02                 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-adcm               : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-etl-balancer           : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-etl-front              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-etl-kafka1             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-kafka2             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-kafka3             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-metrics-api1       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi1              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi10             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi11             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi12             : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi13             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi14             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi15             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi2              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi22             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi23             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi24             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi25             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi26             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi27             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi28             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi29             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi3              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi30             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi31             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi32             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi33             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi34             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi35             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi36             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi37             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi38             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi39             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi4              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi40             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi41             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi42             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi5              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi6              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi7              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi8              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-nifi9              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-postgresql         : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-postgresql-standby1 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-postgresql-standby2 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-postgresql5        : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-postgresql6        : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-postgresql7        : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-redis1             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-redis10            : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-redis2             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-redis5             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-redis6             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-redis7             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-redis8             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-redis9             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-zookeeper1         : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-zookeeper2         : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-etl-zookeeper3         : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-GN-01          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-GN-02          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-avanpostFAM    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-general-db-audit01     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-db-audit02     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-elasticmaster  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-elasticmaster1 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-elasticmaster2 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-elasticmaster3 : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-grafana        : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-graylog        : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-inx-01         : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-kibana         : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-nginx1         : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-nginx2         : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-nginx3         : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-nginx4         : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-postgresql     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-prometheus     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-vault          : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-general-zabbix         : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-kv-app                 : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-kv-app-bal             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-kv-app2                : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-kv-postgres            : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-kv-postgres2           : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-adapter-podd      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-nsud-adapter-skv       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-nsud-adb-master1       : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-adb-master2       : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-adb1              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-adb2              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-adb3              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-nsud-adcm              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-nsud-ads-kafka1        : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-ads-kafka2        : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-ads-zookeeper1    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-ads-zookeeper2    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-ads-zookeeper3    : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-agent-podd1       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-nsud-agent-podd2       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-nsud-db                : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-etl               : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-nsud-grafana           : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-prometheus        : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-prostore-core     : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-nsud-prostore-core2    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-nsud-prostore-monitor  : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-nsud-router-docker     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-router-postgres   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-router-rabbitmq   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-router-zookeeper  : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+dc2-nsud-smev31            : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+dc2-nsud-smev32            : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+

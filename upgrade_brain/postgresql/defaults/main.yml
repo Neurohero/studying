@@ -1,0 +1,55 @@
+---
+# Конфигураця PostgreSQL, задать параметры, или высчитается автоматически. Единицы измерения МБ, указывать не нужно
+# pg_work_mem: 200
+# pg_effective_cache_size: 3072
+# pg_shared_buffers: 1024
+
+# pg_hba_hosts:
+# host axicreditclient all 10.0.0.1/32 md5
+pg_hba_hosts: ""
+
+postgresql_version: 15
+postgresql_version_terse: "{{ postgresql_version | replace('.', '') }}"  # Short version of the postgresql_version, used in some path and filenames
+postgresql_install_repository: true
+
+postgresql_data_dir: "{{ pg_dir | default(__postgresql_data_dir) }}"
+postgresql_config_path: "{%- if  (ansible_os_family == 'Debian') -%} {{__postgresql_config_path}} {%- else -%} {{ pg_dir | default(__postgresql_config_path) }} {%- endif -%}"
+postgresql_log_directory: "/var/log/postgresql/"
+
+# APT конфигурация репозитория
+postgresql_apt_key_id: "ACCC4CF8"
+postgresql_apt_key_url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
+postgresql_apt_repository: "deb http://apt.postgresql.org/pub/repos/apt/dists/ {{ ansible_distribution_release }}-pgdg main {{ postgresql_version }}"
+# RHEL конфигурация репозитория
+postgresql_yum_repository_url: "http://yum.postgresql.org"
+postgresql_pgdg_repository_url: "https://download.postgresql.org/pub/repos/yum/"
+
+# YUM (RedHat, CentOS, etc.) baseurl/gpgkey
+postgresql_yum_repository_baseurl: "{{ postgresql_yum_repository_url }}/{{ postgresql_version }}/{{ ansible_os_family | lower }}/rhel-{{ ansible_distribution_major_version }}-{{ ansible_architecture }}"
+postgresql_yum_repository_gpgkey: "{{ postgresql_pgdg_repository_url }}/RPM-GPG-KEY-PGDG-{{ postgresql_version_terse }}"
+
+postgres_pgtune: true
+postgresql_max_connection: "{{ pg_max_connections | default(100) | int }}"
+pg_stat_statements: false
+postgresql_restarted_state: "restarted"
+
+postgresql_python_library: psycopg2-binary
+postgresql_user: postgres
+postgresql_group: postgres
+
+postgresql_unix_socket_directories:
+  - /var/run/postgresql
+
+postgresql_service_state: started
+postgresql_service_enabled: true
+
+postgresql_max_wal_size: "{%- if (ansible_memtotal_mb / 1024) | round >= 4 -%} {{ ansible_memtotal_mb }}MB {%- else -%} 4048MB{%- endif -%}"
+
+# Global configuration options that will be set in postgresql.conf.
+postgresql_global_config_options:
+  - option: unix_socket_directories
+    value: '{{ postgresql_unix_socket_directories | join(",") }}'
+
+# Debian only. Used to generate the locales used by PostgreSQL databases.
+postgresql_locales:
+  - 'en_US.UTF-8'

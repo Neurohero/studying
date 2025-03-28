@@ -1,0 +1,14 @@
+- name: Adding cron file
+  hosts: db_users_etl
+  become: true
+  vars_files: /etc/ansible/vault.yml
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: adding cron file
+      template:
+        src: /etc/ansible/templates/cron_postgres_vacuum_analyze.j2
+        dest: /etc/cron.d/
+    - name: rename file
+      command: mv /etc/cron.d/cron_postgres_vacuum_analyze.j2 /etc/cron.d/cron_vacuum_analyze

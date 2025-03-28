@@ -1,0 +1,10 @@
+- name: Editing logrotate config
+  hosts: dc2-test2-nsud-smev32 
+  become: true
+  vars_files: /etc/ansible/vault.yml
+  vars:
+    conf_file: /etc/logrotate.conf
+  tasks:
+    - name: copy logrotate config file
+      template: src=/etc/ansible/templates/logrotate.conf.j2 dest={{ conf_file }}
+

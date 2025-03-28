@@ -1,0 +1,33 @@
+services:
+  prometheus:
+    image: bitnami/prometheus
+    restart: always
+    volumes:
+      - /etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    command: '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+
+  node-exporter:
+    image: bitnami/node-exporter
+    restart: always
+    ports:
+      - "9100:9100"
+    networks:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana
+    restart: always
+    volumes:
+      - /etc/grafana:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - monitoring
+    user: "root:root"
+networks:
+  monitoring:
+    driver: bridge

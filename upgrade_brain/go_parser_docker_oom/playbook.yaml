@@ -1,0 +1,30 @@
+- name: docker_oom_killer
+  hosts: all
+  become: true
+  vars:
+    service: app_parser.service
+  tasks:
+    - name: copy parser
+      copy:
+        src: /home/kmendeleev/git_hub/job_job/go_parser_docker_oom/app_parser
+        dest: /home/kosin
+
+    - name: enable ispolnyaempost
+      file:
+        path: /home/kosin/app_parser
+        mode: "0755"
+
+    - name: copy service
+      copy:
+        src: /home/kmendeleev/git_hub/job_job/go_parser_docker_oom/app_parser.service
+        dest: /etc/systemd/system
+
+    - name: daemon reload
+      systemd:
+        daemon_reload: true
+
+    - name: start service
+      systemd:
+        name: "{{ service }}"
+        state: started
+        enabled: true

@@ -1,0 +1,27 @@
+- name: create db user
+  hosts: dc2-det-sloy 
+  become: true
+  become_user: gpadmin
+    #  vars_files: /etc/ansible/vault.yml
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    usr_group1: "vpn_users"
+    usr_group2: "vpn_access"
+    usr_group3: "egrn2_readonly"
+    usr_name:  "mpopov"
+  tasks:
+    - name: connect to postgres
+      command: psql -d ice-warehouse
+
+    - name: create db user and add to role
+      postgresql_user:
+        name: "{{ usr_name }}"
+        password: "rywCo3"
+        state: present
+
+    - name: grant role to user
+      postgresql_query:
+        query: "grant {{ usr_group2 }} to {{ usr_name }};"
+          #    - name: grant second role to user
+      #      postgresql_query:
+        #        query: "grant {{ usr_group3 }} to {{ usr_name }};"

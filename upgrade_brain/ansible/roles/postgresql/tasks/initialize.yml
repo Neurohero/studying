@@ -1,0 +1,107 @@
+---
+- name: PostgreSQL | Настройка переменных окружения PostgreSQL
+  ansible.builtin.template:
+    src: postgres.sh.j2
+    dest: /etc/profile.d/postgres.sh
+    mode: 0644
+  notify: stop postgresql
+
+- name: builtin | Проверка существования postgresql_data_dir PostgreSQL
+  ansible.builtin.stat:
+    path: "{{ postgresql_data_dir }}"
+  register: postgresql_stat_result
+  
+- name: Check current timezone
+  ansible.builtin.shell: 'timedatectl | sed -n "s/^\s*Time zone: \(.*\) (.*/\1/p"'
+  register: cd_axilink_current_timezone
+
+
+- name: PostgreSQL | Проверка наличия необходиымх каталогов PostgreSQL
+  file:
+    path: "{{ postgresql_data_dir }}"
+    owner: "{{ postgresql_user }}"
+    group: "{{ postgresql_group }}"
+    state: directory
+    mode: 0700
+  when: postgresql_stat_result.stat.exists is false
+
+- name: "PostgreSQL result"
+  ansible.builtin.debug:
+    msg: "{{ postgresql_data_dir }}"
+
+- name: PostgreSQL Debian | Инициализация БД PostgreSQL
+  command: "{{ __postgresql_initdb_command }} -D {{ postgresql_data_dir }}"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  environment: 
+    PGDATA: "{{ postgresql_data_dir }}"
+  vars:
+    ansible_ssh_pipelining: true
+  
+
+- name: PostgreSQL | Проверка наличия необходиымх каталогов PostgreSQL
+  file:
+    path: "{{ postgresql_config_path }}/conf.d"
+    owner: "{{ postgresql_user }}"
+    group: "{{ postgresql_group }}"
+    state: directory
+    mode: 0700
+
+- name: PostgreSQL | Копирование шаблона postgresql.conf
+  ansible.builtin.template:
+    src: postgresql.conf.j2
+    dest: "{{ postgresql_config_path }}/postgresql.conf"
+    owner: postgres
+    group: postgres
+    mode: '0644'
+
+- name: PostgreSQL | Копирование шаблона pg_hba.conf
+  ansible.builtin.template:
+    src: pg_hba.conf.j2
+    dest: "{{ postgresql_config_path }}/pg_hba.conf"
+    owner: postgres
+    group: postgres
+    mode: '0644'
+
+- name: PostgreSQL | Копирование environment
+  become: true
+  ansible.builtin.copy:
+    src: environment
+    dest: "{{ postgresql_config_path }}/environment"
+    owner: postgres
+    group: postgres
+    mode: '0644'
+
+- name: PostgreSQL | Копирование pg_ctl.conf
+  become: true
+  ansible.builtin.copy:
+    src: pg_ctl.conf
+    dest: "{{ postgresql_config_path }}/pg_ctl.conf"
+    owner: postgres
+    group: postgres
+    mode: '0644'
+
+- name: PostgreSQL | Копирование pg_ident.conf
+  become: true
+  ansible.builtin.copy:
+    src: pg_ident.conf
+    dest: "{{ postgresql_config_path }}/pg_ident.conf"
+    owner: postgres
+    group: postgres
+    mode: '0644'
+
+- name: PostgreSQL | Копирование start.conf
+  become: true
+  ansible.builtin.copy:
+    src: start.conf
+    dest: "{{ postgresql_config_path }}/start.conf"
+    owner: postgres
+    group: postgres
+    mode: '0644'
+
+# - name: PostgreSQL | Проверка инициализации БД PostgreSQL.
+#   stat:
+#     path: "{{ postgresql_data_dir }}/PG_VERSION"
+#   register: pgdata_dir_version
+
+- include_tasks: configure.yml

@@ -1,0 +1,13 @@
+[Unit]
+Description=Postgres Custom Metrics Exporter
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/postgres-metrics-exporter
+WorkingDirectory=/usr/local/bin/
+User=root
+Group=root
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+--- 
+- name: stop postgresql
+  service:
+    name: "{{ __postgresql_daemon }}"
+    state: stopped
+
+- name: start postgresql
+  service:
+    name: "{{ __postgresql_daemon }}"
+    state: started
+
+- name: restart postgresql
+  service:
+    name: "{{ __postgresql_daemon }}"
+    state: restarted
+    sleep: 5
+
+- name: reload postgresql
+  service:
+    name: "{{ __postgresql_daemon }}"
+    state: reloaded

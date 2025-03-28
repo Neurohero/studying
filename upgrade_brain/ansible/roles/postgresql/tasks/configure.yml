@@ -1,0 +1,127 @@
+---
+# - name: Debian PostgreSQL PgAgent |  Установка пакета psycopg2
+#   pip:
+#     name: "{{ postgresql_python_library }}"
+#     state: present
+
+- name: PostgreSQL | Проверка наличия PostgreSQL unix socket каталога
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ postgresql_user }}"
+    group: "{{ postgresql_group }}"
+    mode: 02775
+  with_items: "{{ postgresql_unix_socket_directories }}"
+
+- name: PostgreSQL | Make sure the postgres log directory exists
+  file:
+    path: "{{ postgresql_log_directory }}"
+    owner: "{{ postgresql_user }}"
+    group: "{{ postgresql_group }}"
+    state: directory
+    mode: 0700
+  register: pglog_dir_exist
+
+- name: PostgreSQL RedHat | Создание директории службы PostgreSQL
+  file:
+    path: "/etc/systemd/system/postgresql-{{ postgresql_version }}.service.d/"
+    state: directory
+    mode: 0755
+  when: ansible_os_family == "RedHat" or ansible_os_family == 'AlmaLinux'
+
+- name: PostgreSQL RedHat | Изменение директории PostgreSQL
+  template:
+    src: etc_systemd_system_postgresql.service.d_custom.conf.j2
+    dest: "/etc/systemd/system/postgresql-{{ postgresql_version }}.service.d/override.conf"
+  when: ansible_os_family == "RedHat" or ansible_os_family == 'AlmaLinux'
+
+- name: systemctl daemon-reload
+  ansible.builtin.shell: systemctl daemon-reload
+
+- name: Запуск службы PostgreSQL
+  service:
+    name: "{{ __postgresql_daemon }}"
+    state: restarted
+    enabled: true
+
+- name: PostgreSQL | Создание ext 
+  community.postgresql.postgresql_ext:
+    name: pg_stat_statements
+    db: postgres
+  become: true
+  become_user: "{{ postgresql_user }}"
+
+- name: PostgreSQL | Конфигурация параметра shared_buffers
+  community.postgresql.postgresql_set:
+    name: shared_buffers
+    value: "{{ pg_shared_buffers | default(ansible_memtotal_mb / 4) | int }}MB"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  when: postgres_pgtune is true
+
+- name: PostgreSQL | Конфигурация параметра effective_cache_size 
+  community.postgresql.postgresql_set:
+    name: effective_cache_size 
+    value: "{{ pg_effective_cache_size | default(ansible_memtotal_mb *0.75) | int }}MB"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  when: postgres_pgtune is true
+
+- name: PostgreSQL | Конфигурация параметра maintenance_work_mem 
+  community.postgresql.postgresql_set:
+    name: maintenance_work_mem  
+    value: "{{ pg_maintenance_work_mem | default(ansible_memtotal_mb / 15.8125) | int }}MB"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  when: postgres_pgtune is true
+
+- name: PostgreSQL | Конфигурация параметра wal_buffers  
+  community.postgresql.postgresql_set:
+    name: wal_buffers   
+    value: "64MB"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  when: postgres_pgtune is true
+
+- name: PostgreSQL | Конфигурация параметра max_connections
+  community.postgresql.postgresql_set:
+    name: max_connections   
+    value: "{{ postgresql_max_connection | int }}"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  when: postgres_pgtune is true
+
+- name: PostgreSQL | Конфигурация параметра work_mem
+  # Как считается: 1/8 часть выделенной серверу ОЗУ между max_connections пользователями. Указывается в Кб
+  community.postgresql.postgresql_set:
+    name: work_mem   
+    value: "{{ (pg_work_mem | default(ansible_memtotal_mb | int) * 1024 * 0.125 / (postgresql_max_connection | int) ) | round | int }}kB"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  when: postgres_pgtune is true
+
+- name: PostgreSQL | Конфигурация параметра min_wal_size   
+  community.postgresql.postgresql_set:
+    name: min_wal_size    
+    value: "1024MB"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  when: postgres_pgtune is true
+
+- name: PostgreSQL | Конфигурация параметра shared_preload_libraries   
+  community.postgresql.postgresql_set:
+    name: shared_preload_libraries    
+    value: "pg_stat_statements"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  when: pg_stat_statements is true
+
+- name: PostgreSQL | Конфигурация параметра max_wal_size   
+  community.postgresql.postgresql_set:
+    name: max_wal_size    
+    value: "4048MB"
+  become: true
+  become_user: "{{ postgresql_user }}"
+  when: postgres_pgtune is true
+  notify: restart postgresql
+

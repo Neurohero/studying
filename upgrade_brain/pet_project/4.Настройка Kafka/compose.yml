@@ -1,0 +1,50 @@
+services:
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ALLOW_ANONYMOUS_LOGIN: "yes"
+    volumes:
+      - /etc/zookeeper/zoo.cfg:/opt/bitnami/zookeeper/config/zoo.cfg
+    networks:
+      - kafka
+
+  kafka:
+    image: bitnami/kafka:latest
+    ports:
+      - "9092:9092"
+      - "9094:9094"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9092,OUTSIDE://10.255.254.48:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9092,OUTSIDE://0.0.0.0:9094
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+#    volumes:
+#      - /etc/kafka/server.properties:/opt/bitnami/kafka/config/server.properties
+#      - /etc/kafka/log4j.properties:/opt/bitnami/kafka/config/log4j.properties
+#      - /var/log/kafka:/opt/bitnami/kafka/logs
+    depends_on:
+      - zookeeper
+    networks:
+      - kafka
+
+  kafdrop:
+    image: obsidiandynamics/kafdrop:latest
+    ports:
+      - "9000:9000"
+    environment:
+      KAFKA_BROKERCONNECT: kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9092,OUTSIDE://10.255.254.48:9094
+    depends_on:
+      - kafka
+    networks:
+      - kafka
+
+networks:
+  kafka:
+    driver: bridge
+

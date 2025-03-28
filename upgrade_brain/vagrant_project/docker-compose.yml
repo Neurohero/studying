@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - monitoring
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+#      - "/etc/grafana:/etc/grafana"
+      - "/etc/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards" 
+      - "/etc/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources"
+
+  prometheus:
+    image: bitnami/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+    volumes:
+      - "/etc/prometheus:/opt/bitnami/prometheus/conf"
+    restart: always
+    
+  node_exporter:
+    image: prom/node-exporter
+    container_name: node_exporter
+    ports:
+      - "9100:9100"
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge
+
+#volumes:
+#  grafana: {}
+#  prometheus: {}
